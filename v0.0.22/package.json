@@ -1,0 +1,18 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "esbuild index.js --platform=neutral --bundle --outfile=./public/_worker.js",
+    "dev:watch": "esbuild --watch index.js --platform=neutral --bundle --outfile=./public/_worker.js",
+    "dev:wrangler": "wrangler pages dev ./public --local --port 5000 --kv MY_KVNS --binding FOO=BAR --binding BAR=FOO",
+    "dev": "concurrently \"npm:dev:watch\" \"npm:dev:wrangler\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "esbuild": "^0.14.27",
+    "wrangler": "beta"
+  }
+}
